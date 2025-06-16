@@ -1,0 +1,682 @@
+/* Variables CSS pour une gestion facile des couleurs et polices */
+
+:root {
+    --color-primary: #007bff;
+    /* Bleu vif */
+    --color-secondary: #6c757d;
+    /* Gris foncé */
+    --color-accent: #28a745;
+    /* Vert pour les actions */
+    --color-text-dark: #343a40;
+    /* Texte principal foncé */
+    --color-text-light: #ffffff;
+    /* Texte clair pour les fonds sombres */
+    --color-background-light: #ffffff;
+    /* Fond clair */
+    --color-background-dark: #f8f9fa;
+    /* Fond légèrement grisé */
+    --color-border: #dee2e6;
+    /* Couleur de bordure */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    --spacing-unit: 1rem;
+    /* 16px par défaut */
+    --border-radius-default: 8px;
+    --transition-speed: 0.3s;
+    --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --box-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* --- Réinitialisation et styles de base --- */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Permet un défilement doux vers les ancres */
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.7;
+    /* Légèrement augmenté pour une meilleure lisibilité */
+    color: var(--color-text-dark);
+    background-color: var(--color-background-light);
+    overflow-x: hidden;
+    /* Empêche le défilement horizontal indésirable */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 calc(var(--spacing-unit) * 1.5);
+    /* Padding ajusté */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: var(--color-text-dark);
+    margin-bottom: calc(var(--spacing-unit) * 1.2);
+    line-height: 1.2;
+    font-weight: 700;
+    /* Assure que les titres sont bien gras */
+}
+
+h1 {
+    font-size: 3.2rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.9rem;
+}
+
+p {
+    margin-bottom: var(--spacing-unit);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease, opacity var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--color-accent);
+    opacity: 0.8;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    /* Supprime l'espace sous les images */
+}
+
+
+/* --- Boutons --- */
+
+.btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    /* Légèrement plus grand */
+    border-radius: var(--border-radius-default);
+    font-weight: 600;
+    text-align: center;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    /* Légèrement plus grand */
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: 2px solid var(--color-primary);
+    box-shadow: var(--box-shadow-light);
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    /* Une teinte plus foncée du bleu primaire */
+    border-color: #0056b3;
+    transform: translateY(-3px);
+    /* Effet de léger soulèvement */
+    box-shadow: var(--box-shadow-hover);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-secondary);
+    border: 2px solid var(--color-secondary);
+    box-shadow: var(--box-shadow-light);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.btn-tertiary {
+    background-color: var(--color-background-dark);
+    color: var(--color-primary);
+    border: 1px solid var(--color-border);
+    padding: 0.7rem 1.4rem;
+    /* Légèrement ajusté */
+    font-size: 0.85rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.btn-tertiary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border-color: var(--color-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- Header (Navigation) --- */
+
+.header {
+    background-color: var(--color-background-light);
+    padding: var(--spacing-unit) 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-nav .logo {
+    font-family: var(--font-heading);
+    font-size: 1.9rem;
+    /* Légèrement plus grand */
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 1.8rem;
+    /* Espacement un peu plus large */
+}
+
+.main-nav ul li a {
+    font-weight: 600;
+    padding: 0.5rem 0;
+    position: relative;
+    color: var(--color-text-dark);
+    /* Couleur du texte par défaut */
+}
+
+.main-nav ul li a:hover {
+    color: var(--color-primary);
+    /* Change la couleur du texte au survol */
+}
+
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    /* Plus épais */
+    background-color: var(--color-primary);
+    transition: width var(--transition-speed) ease-in-out;
+}
+
+.main-nav ul li a:hover::after {
+    width: 100%;
+}
+
+
+/* --- Sections Générales --- */
+
+section {
+    padding: 5rem 0;
+    /* Plus d'espace vertical */
+    text-align: center;
+}
+
+section:nth-of-type(even) {
+    background-color: var(--color-background-dark);
+}
+
+section h2 {
+    margin-bottom: 3rem;
+    /* Plus d'espace sous le titre de section */
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    /* Plus bas */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    /* Plus large */
+    height: 5px;
+    /* Plus épais */
+    background-color: var(--color-primary);
+    border-radius: 2px;
+}
+
+
+/* --- Section Hero (Introduction) --- */
+
+.hero-section {
+    background-color: var(--color-background-light);
+    min-height: 90vh;
+    /* Prend plus d'espace vertical */
+    display: flex;
+    align-items: center;
+    text-align: left;
+    position: relative;
+    /* Pour positionner l'image de fond si nécessaire */
+}
+
+.hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    /* Plus d'espace entre le texte et l'image */
+}
+
+.hero-text {
+    flex: 1 1 55%;
+    min-width: 320px;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    /* Plus grand */
+    margin-bottom: 1.8rem;
+    color: var(--color-text-dark);
+}
+
+.hero-text p {
+    font-size: 1.3rem;
+    /* Plus grand */
+    color: var(--color-secondary);
+    margin-bottom: 2.5rem;
+}
+
+.hero-image {
+    flex: 1 1 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    border-radius: 50%;
+    width: 350px;
+    /* Plus grande taille par défaut */
+    height: 350px;
+    object-fit: cover;
+    border: 6px solid var(--color-primary);
+    /* Bordure plus épaisse */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    /* Ombre plus prononcée */
+    transition: transform 0.3s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.02);
+    /* Léger zoom au survol */
+}
+
+
+/* --- Section À Propos --- */
+
+.about-section .container {
+    text-align: center;
+}
+
+.about-content {
+    max-width: 900px;
+    /* Plus large */
+    margin: 0 auto;
+    font-size: 1.1rem;
+    /* Texte un peu plus grand */
+}
+
+.about-content h3 {
+    margin-top: 2.5rem;
+    color: var(--color-primary);
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+    /* Espacement ajusté */
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.skills-list li {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 0.6rem 1.2rem;
+    /* Plus de padding */
+    border-radius: var(--border-radius-default);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.skills-list li:hover {
+    transform: translateY(-4px) scale(1.05);
+    /* Effet plus prononcé */
+    background-color: #0056b3;
+    /* Change de couleur au survol */
+}
+
+
+/* --- Section Portfolio (Grille de Projets) --- */
+
+.portfolio-section .container {
+    text-align: center;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    /* Min-width légèrement augmenté */
+    gap: 2.5rem;
+    /* Plus d'espace entre les cartes */
+    margin-top: 3rem;
+}
+
+.project-card {
+    background-color: var(--color-background-light);
+    border-radius: var(--border-radius-default);
+    box-shadow: var(--box-shadow-light);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    /* Pour assurer que l'image et le contenu s'empilent */
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    /* Plus grand soulèvement */
+    box-shadow: var(--box-shadow-hover);
+}
+
+.project-card img {
+    width: 100%;
+    height: 250px;
+    /* Hauteur fixe légèrement augmentée pour l'image du projet */
+    object-fit: cover;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.project-info {
+    padding: 1.8rem;
+    /* Plus de padding */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* Permet au contenu de s'étirer */
+    justify-content: space-between;
+    /* Espace le contenu si nécessaire */
+}
+
+.project-info h3 {
+    font-size: 1.5rem;
+    /* Plus grand */
+    margin-bottom: 0.6rem;
+    color: var(--color-text-dark);
+    /* Couleur du titre de projet */
+}
+
+.project-info .project-category {
+    font-size: 0.95rem;
+    color: var(--color-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.project-info .btn-tertiary {
+    align-self: flex-start;
+    /* Aligne le bouton à gauche */
+    margin-top: auto;
+    /* Pousse le bouton vers le bas si le contenu varie */
+}
+
+
+/* --- Section Contact --- */
+
+.contact-section .container {
+    text-align: center;
+}
+
+.contact-info {
+    margin-top: 2.5rem;
+    font-size: 1.2rem;
+    /* Texte plus grand */
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+}
+
+.contact-info a {
+    font-weight: 700;
+    /* Plus gras */
+    color: var(--color-primary);
+}
+
+
+/* --- Footer --- */
+
+.footer {
+    background-color: var(--color-text-dark);
+    color: var(--color-text-light);
+    padding: 2rem 0;
+    /* Plus de padding */
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+
+/* --- Media Queries pour la Responsivité --- */
+
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+    h2 {
+        font-size: 2.2rem;
+    }
+    h3 {
+        font-size: 1.7rem;
+    }
+    .hero-text h1 {
+        font-size: 3.5rem;
+    }
+    .hero-image img {
+        width: 280px;
+        height: 280px;
+    }
+    .main-nav ul {
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-unit);
+        /* Réduit le padding sur mobile */
+    }
+    .main-nav {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+        /* Espacement réduit pour les éléments de menu */
+    }
+    .hero-section {
+        padding-top: 4rem;
+        /* Plus de padding en haut pour le contenu */
+        min-height: auto;
+    }
+    .hero-content {
+        flex-direction: column;
+        /* Empile les éléments sur mobile */
+        text-align: center;
+    }
+    .hero-text {
+        order: 2;
+        /* Texte après l'image */
+        margin-top: 2rem;
+    }
+    .hero-image {
+        order: 1;
+        /* Image avant le texte */
+        margin-bottom: 0;
+    }
+    .hero-text h1 {
+        font-size: 2.8rem;
+    }
+    .hero-text p {
+        font-size: 1.1rem;
+    }
+    section {
+        padding: 4rem 0;
+    }
+    .skills-list {
+        justify-content: center;
+        /* Recentrer les compétences sur les petits écrans */
+        padding: 0;
+    }
+    .project-card img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    h3 {
+        font-size: 1.6rem;
+    }
+    .main-nav .logo {
+        font-size: 1.6rem;
+    }
+    .main-nav ul li a {
+        font-size: 0.85rem;
+    }
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    .hero-text p {
+        font-size: 1rem;
+    }
+    .hero-image img {
+        width: 220px;
+        height: 220px;
+        border-width: 4px;
+        /* Bordure plus fine */
+    }
+    .btn {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.85rem;
+    }
+    .project-info h3 {
+        font-size: 1.3rem;
+    }
+    .project-info .project-category {
+        font-size: 0.85rem;
+    }
+    .contact-info {
+        font-size: 1rem;
+    }
+}
+
+
+/* Animations simples (CSS uniquement) */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Appliquer l'animation à certaines sections ou éléments */
+
+.hero-text,
+.hero-image,
+.about-content,
+.project-card,
+.contact-info {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+    /* Caché par défaut */
+}
+
+
+/* Délai pour que les éléments apparaissent successivement */
+
+.hero-text {
+    animation-delay: 0.2s;
+}
+
+.hero-image {
+    animation-delay: 0.4s;
+}
+
+.about-content {
+    animation-delay: 0.2s;
+}
+
+.project-card:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.project-card:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.project-card:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+.contact-info {
+    animation-delay: 0.2s;
+}
